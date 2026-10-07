@@ -26,15 +26,20 @@ const mockInterviewRoutes = require("./routes/mockInterviewRoutes");
 
 const app = express();
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // =========================================================
 // MIDDLEWARE
 // =========================================================
 
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
-app.use(express.json());
+app.use(express.json({ limit: "10mb" }));
 
 // =========================================================
 // TEST ROUTE
@@ -51,46 +56,31 @@ app.get("/", (req, res) => {
 // AUTH ROUTES
 // =========================================================
 
-app.use(
-  "/api/auth",
-  authRoutes
-);
+app.use("/api/auth", authRoutes);
 
 // =========================================================
 // PROFILE ROUTES
 // =========================================================
 
-app.use(
-  "/api/profile",
-  profileRoutes
-);
+app.use("/api/profile", profileRoutes);
 
 // =========================================================
 // ACTIVITY ROUTES
 // =========================================================
 
-app.use(
-  "/api/activity",
-  activityRoutes
-);
+app.use("/api/activity", activityRoutes);
 
 // =========================================================
 // ADMIN ROUTES
 // =========================================================
 
-app.use(
-  "/api/admin",
-  adminRoutes
-);
+app.use("/api/admin", adminRoutes);
 
 // =========================================================
 // MOCK INTERVIEW ROUTES
 // =========================================================
 
-app.use(
-  "/api/mock-interviews",
-  mockInterviewRoutes
-);
+app.use("/api/mock-interviews", mockInterviewRoutes);
 
 // =========================================================
 // START SERVER
@@ -98,10 +88,10 @@ app.use(
 
 const server = app.listen(
   PORT,
-  "127.0.0.1",
+  "0.0.0.0",
   () => {
     console.log(
-      `MIQ Backend running on http://127.0.0.1:${PORT}`
+      `MIQ Backend running on port ${PORT}`
     );
   }
 );
@@ -110,16 +100,10 @@ const server = app.listen(
 // SERVER ERROR
 // =========================================================
 
-server.on(
-  "error",
-  (error) => {
-    console.error(
-      "SERVER START ERROR"
-    );
-
-    console.error(error);
-  }
-);
+server.on("error", (error) => {
+  console.error("SERVER START ERROR");
+  console.error(error);
+});
 
 // =========================================================
 // CONNECT MONGODB
