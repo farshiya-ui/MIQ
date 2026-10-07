@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import "./MockInterview.css";
 import mockInterviewQuestions from "../../data/mockInterviewQuestions";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const languages = [
   "C",
   "C++",
@@ -505,7 +507,7 @@ function MockInterview({ onBack }) {
       =================================================== */
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/mock-interviews/start",
+        `${API_URL}/api/mock-interviews/start`,
         {
           method: "POST",
 
@@ -791,7 +793,7 @@ function MockInterview({ onBack }) {
       =================================================== */
 
       const response = await fetch(
-        `http://127.0.0.1:5000/api/mock-interviews/${interviewId}/submit`,
+        `${API_URL}/api/mock-interviews/${interviewId}/submit`,
         {
           method: "POST",
 

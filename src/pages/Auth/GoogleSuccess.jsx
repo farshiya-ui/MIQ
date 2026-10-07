@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function GoogleSuccess({ onLoginSuccess }) {
   useEffect(() => {
     const finishGoogleLogin = async () => {
@@ -35,7 +37,7 @@ function GoogleSuccess({ onLoginSuccess }) {
         );
 
         const response = await fetch(
-          "http://localhost:5000/api/profile/profile",
+          `${API_URL}/api/profile/profile`,
           {
             method: "GET",
             headers: {
@@ -70,7 +72,6 @@ function GoogleSuccess({ onLoginSuccess }) {
 
         onLoginSuccess(data.user);
 
-        // Return to the normal MIQ page
         window.history.replaceState(
           {},
           document.title,

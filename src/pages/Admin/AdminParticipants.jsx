@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./AdminParticipants.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function AdminParticipants() {
   const [participants, setParticipants] = useState([]);
   const [selectedParticipant, setSelectedParticipant] =
@@ -30,7 +32,7 @@ function AdminParticipants() {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/admin/participants",
+        `${API_URL}/api/admin/participants`,
         {
           headers: {
             Authorization: `Bearer ${adminToken}`,
@@ -75,7 +77,7 @@ function AdminParticipants() {
       setError("");
 
       const response = await fetch(
-        `http://127.0.0.1:5000/api/admin/participants/${id}`,
+        `${API_URL}/api/admin/participants/${id}`,
         {
           headers: {
             Authorization: `Bearer ${adminToken}`,

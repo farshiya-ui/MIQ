@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./ForgotPassword.css";
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 function ForgotPassword({ onBackToLogin }) {
   const [form, setForm] = useState({
     username: "",
@@ -41,7 +44,7 @@ function ForgotPassword({ onBackToLogin }) {
       setLoading(true);
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/auth/verify-reset",
+        `${API_URL}/api/auth/verify-reset`,
         {
           method: "POST",
           headers: {
@@ -60,14 +63,14 @@ function ForgotPassword({ onBackToLogin }) {
       }
 
       localStorage.setItem(
-  "miqResetSession",
-  JSON.stringify({
-    resetToken: data.resetToken,
-    user: data.user,
-  })
-);
+        "miqResetSession",
+        JSON.stringify({
+          resetToken: data.resetToken,
+          user: data.user,
+        })
+      );
 
-localStorage.removeItem("miqResetUser");
+      localStorage.removeItem("miqResetUser");
 
       setMessage(
         "Account verified successfully. You can now create a new password."

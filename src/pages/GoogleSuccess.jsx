@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function GoogleSuccess({ onLoginSuccess }) {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -17,7 +19,7 @@ function GoogleSuccess({ onLoginSuccess }) {
     const getUser = async () => {
       try {
         const response = await fetch(
-          "http://127.0.0.1:5000/api/profile/profile",
+          `${API_URL}/api/profile/profile`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Quiz.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const quizData = {
   C: {
     beginner: [
@@ -2009,7 +2011,7 @@ function Quiz({ language, onBack, onCertificate }) {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/activity",
+        `${API_URL}/api/activity`,
         {
           method: "POST",
           headers: {
@@ -2185,7 +2187,7 @@ function Quiz({ language, onBack, onCertificate }) {
     // ---------------------------------------------------
 
     if (
-      currentLevelIndex <
+      currentLevelIndex < 
       levels.length - 1
     ) {
       setCurrentLevelIndex(
@@ -2202,18 +2204,6 @@ function Quiz({ language, onBack, onCertificate }) {
     // ===================================================
     // ALL THREE LEVELS COMPLETED
     // ===================================================
-
-    /*
-      The score at this point contains:
-
-      Beginner score
-      +
-      Intermediate score
-      +
-      Advanced score
-
-      Total = maximum 25
-    */
 
     const safeFinalScore =
       Math.min(
@@ -2262,20 +2252,10 @@ function Quiz({ language, onBack, onCertificate }) {
 
     await saveQuizActivity({
       type: "certificate",
-
-      /*
-        IMPORTANT:
-        Certificate score must exactly match
-        the final quiz score.
-      */
       score: safeFinalScore,
-
       totalQuestions: 25,
-
       questionsAttempted: 25,
-
       level: "certificate",
-
       certificateId:
         newCertificate.id,
     });

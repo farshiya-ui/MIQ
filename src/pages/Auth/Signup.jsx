@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Auth.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Signup({ onBack, onLogin }) {
   const [formData, setFormData] = useState({
     username: "",
@@ -54,7 +56,7 @@ function Signup({ onBack, onLogin }) {
       setLoading(true);
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/auth/signup",
+        `${API_URL}/api/auth/signup`,
         {
           method: "POST",
           headers: {
@@ -99,11 +101,16 @@ function Signup({ onBack, onLogin }) {
       console.error("Signup error:", error);
 
       setMessage(
-        "Unable to connect to MIQ server. Make sure the backend is running."
+        "Unable to connect to MIQ server. Please try again."
       );
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleGoogleSignup = () => {
+    window.location.href =
+      `${API_URL}/api/auth/google`;
   };
 
   return (
@@ -258,10 +265,7 @@ function Signup({ onBack, onLogin }) {
         <button
           type="button"
           className="google-auth-button"
-          onClick={() => {
-            window.location.href =
-              "http://127.0.0.1:5000/api/auth/google";
-          }}
+          onClick={handleGoogleSignup}
         >
           <span>G</span>
           Continue with Google

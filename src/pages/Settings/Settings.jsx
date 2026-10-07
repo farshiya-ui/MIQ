@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Settings.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Settings({ onBack }) {
   const [activeSection, setActiveSection] = useState(null);
 
@@ -25,7 +27,7 @@ function Settings({ onBack }) {
       return;
     }
 
-    fetch("http://127.0.0.1:5000/api/profile/profile", {
+    fetch(`${API_URL}/api/profile/profile`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -105,7 +107,7 @@ function Settings({ onBack }) {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/profile/profile",
+        `${API_URL}/api/profile/profile`,
         {
           method: "PUT",
           headers: {

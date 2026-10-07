@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Certificates.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Certificates({ onBack }) {
   const [certificates, setCertificates] = useState([]);
   const [mockCertificates, setMockCertificates] = useState([]);
@@ -26,7 +28,7 @@ function Certificates({ onBack }) {
         ================================================= */
 
         const profileResponse = await fetch(
-          "http://127.0.0.1:5000/api/profile/profile",
+          `${API_URL}/api/profile/profile`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -34,7 +36,8 @@ function Certificates({ onBack }) {
           }
         );
 
-        const profileData = await profileResponse.json();
+        const profileData =
+          await profileResponse.json();
 
         if (profileResponse.ok) {
           setUser(profileData.user);
@@ -45,7 +48,7 @@ function Certificates({ onBack }) {
         ================================================= */
 
         const activityResponse = await fetch(
-          "http://127.0.0.1:5000/api/activity",
+          `${API_URL}/api/activity`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -83,7 +86,7 @@ function Certificates({ onBack }) {
         ================================================= */
 
         const mockResponse = await fetch(
-          "http://127.0.0.1:5000/api/mock-interviews/my",
+          `${API_URL}/api/mock-interviews/my`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

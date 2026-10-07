@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Dashboard.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Dashboard({ onBack }) {
   const [profile, setProfile] = useState(null);
 
@@ -15,7 +17,6 @@ function Dashboard({ onBack }) {
 
   const [loading, setLoading] = useState(true);
   const [activityLoading, setActivityLoading] = useState(true);
-
 
   // =====================================================
   // MIQ LANGUAGES
@@ -34,7 +35,6 @@ function Dashboard({ onBack }) {
     "SQL",
   ];
 
-
   // =====================================================
   // LOAD PROFILE + ACTIVITY
   // =====================================================
@@ -48,27 +48,22 @@ function Dashboard({ onBack }) {
       return;
     }
 
-
     // ===================================================
     // LOAD PROFILE
     // ===================================================
 
-    fetch(
-      "http://127.0.0.1:5000/api/profile/profile",
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    fetch(`${API_URL}/api/profile/profile`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then(async (response) => {
         const data = await response.json();
 
         if (!response.ok) {
           throw new Error(
-            data.message ||
-              "Failed to load profile."
+            data.message || "Failed to load profile."
           );
         }
 
@@ -87,20 +82,16 @@ function Dashboard({ onBack }) {
         setLoading(false);
       });
 
-
     // ===================================================
     // LOAD ACTIVITY SUMMARY
     // ===================================================
 
-    fetch(
-      "http://127.0.0.1:5000/api/activity/summary",
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    fetch(`${API_URL}/api/activity/summary`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then(async (response) => {
         const data = await response.json();
 
@@ -136,7 +127,6 @@ function Dashboard({ onBack }) {
       });
   }, []);
 
-
   // =====================================================
   // PROFILE DATA
   // =====================================================
@@ -158,7 +148,6 @@ function Dashboard({ onBack }) {
   const year =
     profile?.profile?.year ||
     "Not added yet";
-
 
   // =====================================================
   // SUMMARY DATA
@@ -182,51 +171,29 @@ function Dashboard({ onBack }) {
   const levelProgress =
     summary.levelProgress || {};
 
-
   // =====================================================
   // OVERALL LEVEL PROGRESS
-  // =====================================================
-  //
-  // MIQ HAS:
-  //
-  // 10 LANGUAGES
-  // 3 LEVELS PER LANGUAGE
-  //
-  // 10 × 3 = 30 TOTAL LEVELS
-  //
   // =====================================================
 
   const totalLevels =
     miqLanguages.length * 3;
 
-
   const overallProgress =
     Math.min(
       Math.round(
-        (completedLevels /
-          totalLevels) *
-          100
+        (completedLevels / totalLevels) * 100
       ),
       100
     );
 
-
   // =====================================================
   // CREATE COMPLETE LANGUAGE LIST
   // =====================================================
-  //
-  // Languages without activity are automatically shown
-  // with all levels locked.
-  //
-  // =====================================================
 
-  const languages =
-    miqLanguages;
-
+  const languages = miqLanguages;
 
   return (
     <div className="dashboard-page">
-
 
       {/* =================================================
           HEADER
@@ -255,7 +222,6 @@ function Dashboard({ onBack }) {
         </div>
 
       </div>
-
 
       {/* =================================================
           PROFILE
@@ -292,8 +258,7 @@ function Dashboard({ onBack }) {
 
           <h2
             style={{
-              margin:
-                "8px 0 5px",
+              margin: "8px 0 5px",
               color: "#ffffff",
             }}
           >
@@ -313,7 +278,6 @@ function Dashboard({ onBack }) {
 
         </div>
 
-
         <div
           style={{
             display: "grid",
@@ -322,7 +286,6 @@ function Dashboard({ onBack }) {
             gap: "15px",
           }}
         >
-
 
           {/* EMAIL */}
 
@@ -360,7 +323,6 @@ function Dashboard({ onBack }) {
 
           </div>
 
-
           {/* COLLEGE */}
 
           <div
@@ -396,7 +358,6 @@ function Dashboard({ onBack }) {
 
           </div>
 
-
           {/* BRANCH */}
 
           <div
@@ -431,7 +392,6 @@ function Dashboard({ onBack }) {
             </strong>
 
           </div>
-
 
           {/* YEAR */}
 
@@ -472,13 +432,11 @@ function Dashboard({ onBack }) {
 
       </section>
 
-
       {/* =================================================
           DASHBOARD STATS
       ================================================= */}
 
       <section className="dashboard-stats">
-
 
         <div className="dashboard-card">
 
@@ -498,7 +456,6 @@ function Dashboard({ onBack }) {
 
         </div>
 
-
         <div className="dashboard-card">
 
           <span>
@@ -517,7 +474,6 @@ function Dashboard({ onBack }) {
 
         </div>
 
-
         <div className="dashboard-card">
 
           <span>
@@ -535,7 +491,6 @@ function Dashboard({ onBack }) {
           </p>
 
         </div>
-
 
         <div className="dashboard-card">
 
@@ -557,7 +512,6 @@ function Dashboard({ onBack }) {
 
       </section>
 
-
       {/* =================================================
           OVERALL PROGRESS
       ================================================= */}
@@ -578,7 +532,6 @@ function Dashboard({ onBack }) {
 
           </div>
 
-
           <div className="dashboard-progress-percent">
 
             {activityLoading
@@ -589,18 +542,15 @@ function Dashboard({ onBack }) {
 
         </div>
 
-
         <div className="dashboard-progress-bar">
 
           <div
             style={{
-              width:
-                `${overallProgress}%`,
+              width: `${overallProgress}%`,
             }}
           ></div>
 
         </div>
-
 
         <p>
 
@@ -611,7 +561,6 @@ function Dashboard({ onBack }) {
         </p>
 
       </section>
-
 
       {/* =================================================
           LANGUAGE LEVEL PROGRESS
@@ -642,8 +591,7 @@ function Dashboard({ onBack }) {
 
           <h2
             style={{
-              margin:
-                "8px 0 5px",
+              margin: "8px 0 5px",
               color: "#ffffff",
             }}
           >
@@ -662,7 +610,6 @@ function Dashboard({ onBack }) {
 
         </div>
 
-
         <div
           style={{
             display: "grid",
@@ -676,9 +623,7 @@ function Dashboard({ onBack }) {
             (language) => {
 
               const progress =
-                levelProgress[
-                  language
-                ] || {};
+                levelProgress[language] || {};
 
               const beginner =
                 Boolean(
@@ -695,7 +640,6 @@ function Dashboard({ onBack }) {
                   progress.advanced
                 );
 
-
               const languageLevels =
                 [
                   beginner,
@@ -705,22 +649,17 @@ function Dashboard({ onBack }) {
                   Boolean
                 ).length;
 
-
               const languagePercent =
                 Math.round(
-                  (languageLevels / 3) *
-                  100
+                  (languageLevels / 3) * 100
                 );
-
 
               return (
                 <div
                   key={language}
                   style={{
-                    padding:
-                      "22px",
-                    borderRadius:
-                      "18px",
+                    padding: "22px",
+                    borderRadius: "18px",
                     background:
                       "rgba(255, 255, 255, 0.035)",
                     border:
@@ -728,27 +667,21 @@ function Dashboard({ onBack }) {
                   }}
                 >
 
-
                   {/* LANGUAGE NAME */}
 
                   <div
                     style={{
-                      display:
-                        "flex",
-                      justifyContent:
-                        "space-between",
-                      alignItems:
-                        "center",
-                      marginBottom:
-                        "14px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      marginBottom: "14px",
                     }}
                   >
 
                     <h3
                       style={{
                         margin: 0,
-                        color:
-                          "#ffffff",
+                        color: "#ffffff",
                       }}
                     >
                       {language}
@@ -756,8 +689,7 @@ function Dashboard({ onBack }) {
 
                     <strong
                       style={{
-                        color:
-                          "#8fffd0",
+                        color: "#8fffd0",
                       }}
                     >
                       {languagePercent}%
@@ -765,21 +697,16 @@ function Dashboard({ onBack }) {
 
                   </div>
 
-
                   {/* PROGRESS BAR */}
 
                   <div
                     style={{
-                      height:
-                        "7px",
+                      height: "7px",
                       background:
                         "rgba(255,255,255,0.08)",
-                      borderRadius:
-                        "10px",
-                      overflow:
-                        "hidden",
-                      marginBottom:
-                        "20px",
+                      borderRadius: "10px",
+                      overflow: "hidden",
+                      marginBottom: "20px",
                     }}
                   >
 
@@ -787,12 +714,9 @@ function Dashboard({ onBack }) {
                       style={{
                         width:
                           `${languagePercent}%`,
-                        height:
-                          "100%",
-                        background:
-                          "#61bfff",
-                        borderRadius:
-                          "10px",
+                        height: "100%",
+                        background: "#61bfff",
+                        borderRadius: "10px",
                         transition:
                           "width 0.4s ease",
                       }}
@@ -800,19 +724,14 @@ function Dashboard({ onBack }) {
 
                   </div>
 
-
                   {/* BEGINNER */}
 
                   <div
                     style={{
-                      display:
-                        "flex",
-                      justifyContent:
-                        "space-between",
-                      alignItems:
-                        "center",
-                      padding:
-                        "11px 0",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      padding: "11px 0",
                       borderBottom:
                         "1px solid rgba(255,255,255,0.07)",
                     }}
@@ -820,8 +739,7 @@ function Dashboard({ onBack }) {
 
                     <span
                       style={{
-                        color:
-                          "#ffffff",
+                        color: "#ffffff",
                       }}
                     >
                       Beginner
@@ -833,8 +751,7 @@ function Dashboard({ onBack }) {
                           beginner
                             ? "#8fffd0"
                             : "#8190a5",
-                        fontWeight:
-                          "700",
+                        fontWeight: "700",
                       }}
                     >
                       {beginner
@@ -844,19 +761,14 @@ function Dashboard({ onBack }) {
 
                   </div>
 
-
                   {/* INTERMEDIATE */}
 
                   <div
                     style={{
-                      display:
-                        "flex",
-                      justifyContent:
-                        "space-between",
-                      alignItems:
-                        "center",
-                      padding:
-                        "11px 0",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      padding: "11px 0",
                       borderBottom:
                         "1px solid rgba(255,255,255,0.07)",
                     }}
@@ -864,8 +776,7 @@ function Dashboard({ onBack }) {
 
                     <span
                       style={{
-                        color:
-                          "#ffffff",
+                        color: "#ffffff",
                       }}
                     >
                       Intermediate
@@ -879,8 +790,7 @@ function Dashboard({ onBack }) {
                             : beginner
                               ? "#61bfff"
                               : "#8190a5",
-                        fontWeight:
-                          "700",
+                        fontWeight: "700",
                       }}
                     >
                       {intermediate
@@ -892,26 +802,20 @@ function Dashboard({ onBack }) {
 
                   </div>
 
-
                   {/* ADVANCED */}
 
                   <div
                     style={{
-                      display:
-                        "flex",
-                      justifyContent:
-                        "space-between",
-                      alignItems:
-                        "center",
-                      padding:
-                        "11px 0",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      padding: "11px 0",
                     }}
                   >
 
                     <span
                       style={{
-                        color:
-                          "#ffffff",
+                        color: "#ffffff",
                       }}
                     >
                       Advanced
@@ -925,8 +829,7 @@ function Dashboard({ onBack }) {
                             : intermediate
                               ? "#61bfff"
                               : "#8190a5",
-                        fontWeight:
-                          "700",
+                        fontWeight: "700",
                       }}
                     >
                       {advanced
@@ -946,7 +849,6 @@ function Dashboard({ onBack }) {
         </div>
 
       </section>
-
 
       {/* =================================================
           JOURNEY MESSAGE

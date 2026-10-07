@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./AdminMockInterviews.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function AdminMockInterviews() {
   const [interviews, setInterviews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +23,7 @@ function AdminMockInterviews() {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/admin/mock-interviews",
+        `${API_URL}/api/admin/mock-interviews`,
         {
           method: "GET",
           headers: {

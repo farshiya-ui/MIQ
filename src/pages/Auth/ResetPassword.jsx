@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./ResetPassword.css";
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 function ResetPassword() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -70,7 +73,7 @@ function ResetPassword() {
       setLoading(true);
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/auth/reset-password",
+        `${API_URL}/api/auth/reset-password`,
         {
           method: "POST",
 
