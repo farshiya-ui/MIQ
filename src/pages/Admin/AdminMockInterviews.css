@@ -1,0 +1,956 @@
+/* =========================================================
+   MIQ ADMIN MOCK INTERVIEW RESULTS
+   ========================================================= */
+
+.admin-mock-page {
+  min-height: 100vh;
+  background: #071321;
+  color: #ffffff;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.admin-mock-header {
+  min-height: 82px;
+  padding: 0 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  background: #0b1b2d;
+
+  border-bottom: 1px solid #29455f;
+}
+
+.admin-mock-header-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.admin-mock-brand {
+  color: #38bdf8;
+
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+.admin-mock-label {
+  display: block;
+
+  color: #7dd3fc;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.admin-mock-header h1 {
+  margin: 4px 0 0;
+
+  color: #ffffff;
+
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.admin-mock-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* =========================================================
+   HEADER BUTTONS
+   ========================================================= */
+
+.admin-mock-back-button,
+.admin-mock-refresh,
+.admin-mock-logout {
+  padding: 9px 16px;
+
+  border-radius: 6px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.admin-mock-back-button {
+  background: transparent;
+
+  color: #7dd3fc;
+
+  border: 1px solid #29455f;
+}
+
+.admin-mock-back-button:hover {
+  background: #102a42;
+  border-color: #38bdf8;
+}
+
+.admin-mock-refresh {
+  background: #075985;
+
+  color: #ffffff;
+
+  border: 1px solid #38bdf8;
+}
+
+.admin-mock-refresh:hover {
+  background: #0c4160;
+}
+
+.admin-mock-logout {
+  background: transparent;
+
+  color: #ffffff;
+
+  border: 1px solid #64748b;
+}
+
+.admin-mock-logout:hover {
+  background: #18283a;
+  border-color: #94a3b8;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.admin-mock-content {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 35px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.admin-mock-intro {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 25px;
+
+  margin-bottom: 25px;
+}
+
+.admin-mock-intro span {
+  color: #7dd3fc;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.admin-mock-intro h2 {
+  margin: 7px 0;
+
+  color: #ffffff;
+
+  font-size: 30px;
+}
+
+.admin-mock-intro p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: #9fb0bf;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.admin-mock-total {
+  min-width: 150px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background: #102033;
+
+  border: 1px solid #29455f;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.admin-mock-total strong {
+  display: block;
+
+  color: #38bdf8;
+
+  font-size: 32px;
+}
+
+.admin-mock-total span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #9fb0bf;
+
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.admin-mock-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.admin-mock-stat {
+  padding: 20px;
+
+  background: #102033;
+
+  border: 1px solid #29455f;
+
+  border-radius: 8px;
+}
+
+.admin-mock-stat span {
+  display: block;
+
+  color: #9fb0bf;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-mock-stat strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #38bdf8;
+
+  font-size: 25px;
+}
+
+
+/* =========================================================
+   RESULTS CARD
+   ========================================================= */
+
+.admin-mock-results-card {
+  background: #0c1b2b;
+
+  border: 1px solid #29455f;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.admin-mock-results-heading {
+  padding: 22px 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #29455f;
+}
+
+.admin-mock-results-heading > div > span {
+  color: #7dd3fc;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.admin-mock-results-heading h3 {
+  margin: 6px 0 0;
+
+  color: #ffffff;
+
+  font-size: 20px;
+}
+
+.admin-mock-count {
+  padding: 7px 12px;
+
+  color: #7dd3fc;
+
+  background: rgba(56, 189, 248, 0.08);
+
+  border: 1px solid rgba(56, 189, 248, 0.25);
+
+  border-radius: 5px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.admin-mock-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.admin-mock-table {
+  width: 100%;
+
+  min-width: 1450px;
+
+  border-collapse: collapse;
+
+  font-size: 12px;
+}
+
+.admin-mock-table th {
+  padding: 14px 13px;
+
+  background: #10263b;
+
+  color: #7dd3fc;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-align: left;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.admin-mock-table td {
+  padding: 14px 13px;
+
+  color: #d6e1ea;
+
+  border-top: 1px solid #20384d;
+
+  white-space: nowrap;
+}
+
+.admin-mock-table tbody tr {
+  transition: 0.2s ease;
+}
+
+.admin-mock-table tbody tr:hover {
+  background: #102033;
+}
+
+
+/* =========================================================
+   CANDIDATE
+   ========================================================= */
+
+.admin-mock-candidate {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.admin-mock-avatar {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: #075985;
+
+  color: #ffffff;
+
+  border: 1px solid #38bdf8;
+
+  border-radius: 50%;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.admin-mock-candidate strong {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.admin-language-badge {
+  display: inline-block;
+
+  padding: 5px 9px;
+
+  background: rgba(56, 189, 248, 0.08);
+
+  color: #7dd3fc;
+
+  border: 1px solid rgba(56, 189, 248, 0.25);
+
+  border-radius: 5px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.admin-score {
+  color: #ffffff;
+}
+
+.admin-percentage {
+  color: #38bdf8;
+}
+
+.admin-performance {
+  color: #a7f3d0;
+
+  font-weight: 700;
+}
+
+.admin-status {
+  padding: 5px 9px;
+
+  color: #cbd5e1;
+
+  background: #1e293b;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.admin-status.completed {
+  color: #a7f3d0;
+
+  background: rgba(52, 211, 153, 0.1);
+
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.admin-certificate-id {
+  color: #7dd3fc;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.admin-mock-empty {
+  padding: 80px 20px;
+
+  text-align: center;
+}
+
+.admin-mock-empty-logo {
+  margin-bottom: 15px;
+
+  color: #38bdf8;
+
+  font-size: 32px;
+  font-weight: 900;
+
+  letter-spacing: 5px;
+}
+
+.admin-mock-empty h3 {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+}
+
+.admin-mock-empty p {
+  margin: 0;
+
+  color: #9fb0bf;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.admin-mock-loading {
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.admin-mock-loading-logo {
+  color: #38bdf8;
+
+  font-size: 45px;
+  font-weight: 900;
+
+  letter-spacing: 7px;
+}
+
+.admin-mock-loading h2 {
+  margin: 20px 0 8px;
+
+  color: #ffffff;
+}
+
+.admin-mock-loading p {
+  color: #9fb0bf;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.admin-mock-error {
+  max-width: 600px;
+
+  margin: 100px auto;
+
+  padding: 45px;
+
+  box-sizing: border-box;
+
+  background: #102033;
+
+  border: 1px solid #29455f;
+
+  border-radius: 10px;
+
+  text-align: center;
+}
+
+.admin-mock-error-logo {
+  color: #38bdf8;
+
+  font-size: 35px;
+  font-weight: 900;
+
+  letter-spacing: 5px;
+}
+
+.admin-mock-error h1 {
+  margin: 20px 0 10px;
+
+  color: #ffffff;
+
+  font-size: 24px;
+}
+
+.admin-mock-error p {
+  color: #9fb0bf;
+
+  line-height: 1.6;
+}
+
+.admin-mock-error-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.admin-mock-error-actions button {
+  padding: 10px 18px;
+
+  background: #075985;
+
+  color: #ffffff;
+
+  border: 1px solid #38bdf8;
+
+  border-radius: 6px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.admin-mock-error-actions button.secondary {
+  background: transparent;
+
+  border-color: #64748b;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .admin-mock-header {
+    padding: 15px 20px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .admin-mock-header-left {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .admin-mock-header-right {
+    width: 100%;
+  }
+
+  .admin-mock-content {
+    padding: 20px;
+  }
+
+  .admin-mock-intro {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .admin-mock-total {
+    width: 100%;
+  }
+
+  .admin-mock-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .admin-mock-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-mock-header h1 {
+    font-size: 19px;
+  }
+
+  .admin-mock-brand {
+    font-size: 25px;
+  }
+
+  .admin-mock-error {
+    margin: 50px auto;
+
+    padding: 30px 20px;
+  }
+
+  .admin-mock-error-actions {
+    flex-direction: column;
+  }
+
+}
+/* =========================================================
+   CANDIDATE VERIFICATION PHOTO
+========================================================= */
+
+.admin-mock-photo-button {
+  width: 58px;
+  height: 58px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+}
+
+.admin-mock-photo {
+  width: 52px;
+  height: 52px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 2px solid #38bdf8;
+
+  background: #0f172a;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-mock-photo-button:hover .admin-mock-photo {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 0 3px rgba(56, 189, 248, 0.18),
+    0 0 18px rgba(56, 189, 248, 0.25);
+}
+
+.admin-mock-photo-placeholder {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 1px dashed #64748b;
+
+  background: #111827;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   PHOTO MODAL
+========================================================= */
+
+.admin-photo-modal {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(2, 6, 23, 0.88);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  z-index: 99999;
+
+  backdrop-filter: blur(8px);
+
+  animation: adminPhotoModalFade 0.2s ease;
+}
+
+@keyframes adminPhotoModalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.admin-photo-modal-content {
+  position: relative;
+
+  width: min(460px, 90vw);
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  background: #081525;
+
+  border: 1px solid rgba(56, 189, 248, 0.45);
+
+  border-radius: 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55),
+    0 0 35px rgba(56, 189, 248, 0.12);
+}
+
+.admin-photo-modal-image {
+  width: 330px;
+  height: 330px;
+
+  max-width: 75vw;
+  max-height: 75vw;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 4px solid #38bdf8;
+
+  background: #0f172a;
+
+  box-shadow:
+    0 0 0 5px rgba(56, 189, 248, 0.08),
+    0 0 35px rgba(56, 189, 248, 0.2);
+}
+
+.admin-photo-modal-content p {
+  margin: 18px 0 0;
+
+  color: #cbd5e1;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+
+  text-align: center;
+}
+
+.admin-photo-modal-close {
+  position: absolute;
+
+  top: 12px;
+  right: 14px;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid rgba(148, 163, 184, 0.25);
+
+  border-radius: 50%;
+
+  background: rgba(15, 23, 42, 0.9);
+
+  color: #ffffff;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-photo-modal-close:hover {
+  background: #0f2740;
+
+  border-color: #38bdf8;
+
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .admin-mock-photo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .admin-mock-photo-placeholder {
+    width: 46px;
+    height: 46px;
+  }
+
+  .admin-photo-modal-content {
+    width: 90vw;
+
+    padding: 24px;
+  }
+
+  .admin-photo-modal-image {
+    width: 260px;
+    height: 260px;
+  }
+}

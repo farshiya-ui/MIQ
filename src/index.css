@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  font-family: "Inter", "Segoe UI", sans-serif;
+
+  color: #ffffff;
+  background: #050b14;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  --miq-bg: #050b14;
+  --miq-bg-light: #081522;
+
+  --miq-blue: #38bdf8;
+  --miq-blue-light: #7dd3fc;
+
+  --miq-green: #86efac;
+  --miq-mint: #a7f3d0;
+
+  --miq-white: #ffffff;
+  --miq-text: #f8fafc;
+  --miq-text-soft: #cbd5e1;
+  --miq-text-muted: #94a3b8;
+
+  --miq-border: rgba(125, 211, 252, 0.16);
+
+  --miq-blue-glow: rgba(56, 189, 248, 0.18);
+  --miq-green-glow: rgba(134, 239, 172, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--miq-bg);
+  color: var(--miq-text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050b14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(125, 211, 252, 0.35);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(134, 239, 172, 0.55);
+}

@@ -1,0 +1,161 @@
+.scoreboard-page {
+  min-height: 100vh;
+  padding: 90px 7%;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(56, 189, 248, 0.08),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(134, 239, 172, 0.06),
+      transparent 35%
+    ),
+    #050b14;
+  color: #ffffff;
+}
+
+.scoreboard-hero {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.scoreboard-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #86efac;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.scoreboard-hero h1 {
+  margin: 0 0 15px;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 900;
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #7dd3fc,
+    #86efac
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.scoreboard-hero p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.scoreboard-grid {
+  max-width: 1000px;
+  margin: 0 auto 35px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.scoreboard-card {
+  padding: 25px 20px;
+  border: 1px solid rgba(125, 211, 252, 0.15);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.scoreboard-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.scoreboard-card strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #7dd3fc;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.scoreboard-card p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.scoreboard-empty {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  padding: 45px 30px;
+  text-align: center;
+  border: 1px solid rgba(125, 211, 252, 0.15);
+  border-radius: 25px;
+  background: rgba(56, 189, 248, 0.035);
+}
+
+.scoreboard-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: rgba(56, 189, 248, 0.08);
+  font-size: 30px;
+}
+
+.scoreboard-empty h2 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.scoreboard-empty p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.scoreboard-back-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 18px;
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  border-radius: 10px;
+  background: transparent;
+  color: #7dd3fc;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.scoreboard-back-button:hover {
+  background: rgba(56, 189, 248, 0.06);
+}
+
+@media (max-width: 800px) {
+  .scoreboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .scoreboard-page {
+    padding: 70px 20px;
+  }
+
+  .scoreboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

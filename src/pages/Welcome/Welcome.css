@@ -1,0 +1,537 @@
+/* =========================================
+   MIQ WELCOME PAGE
+   SKY BLUE + WHITE + LIGHT GREEN
+========================================= */
+
+.welcome-page {
+  min-height: 100vh;
+  width: 100%;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(56, 189, 248, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(134, 239, 172, 0.08),
+      transparent 28%
+    ),
+    #050b14;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   BACKGROUND GRID
+========================================= */
+
+.welcome-grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(125, 211, 252, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(125, 211, 252, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      black 20%,
+      transparent 80%
+    );
+
+  animation: gridMove 18s linear infinite;
+}
+
+@keyframes gridMove {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(55px);
+  }
+}
+
+
+/* =========================================
+   BACKGROUND ORBS
+========================================= */
+
+.welcome-orb {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(90px);
+}
+
+.orb-one {
+  width: 320px;
+  height: 320px;
+
+  top: -120px;
+  right: -80px;
+
+  background: rgba(56, 189, 248, 0.13);
+
+  animation: floatOne 8s ease-in-out infinite;
+}
+
+.orb-two {
+  width: 280px;
+  height: 280px;
+
+  bottom: -120px;
+  left: -90px;
+
+  background: rgba(134, 239, 172, 0.11);
+
+  animation: floatTwo 10s ease-in-out infinite;
+}
+
+.orb-three {
+  width: 180px;
+  height: 180px;
+
+  top: 35%;
+  left: 8%;
+
+  background: rgba(125, 211, 252, 0.07);
+
+  animation: floatThree 7s ease-in-out infinite;
+}
+
+@keyframes floatOne {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-25px, 30px);
+  }
+}
+
+@keyframes floatTwo {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(30px, -25px);
+  }
+}
+
+@keyframes floatThree {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(20px, -25px);
+  }
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.welcome-content {
+  position: relative;
+  z-index: 5;
+
+  width: min(900px, 92%);
+
+  padding: 45px 20px;
+
+  text-align: center;
+
+  animation: welcomeAppear 1s ease forwards;
+}
+
+@keyframes welcomeAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   MIQ LOGO
+========================================= */
+
+.welcome-logo {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 24px;
+
+  font-size: 52px;
+  font-weight: 900;
+
+  letter-spacing: -9px;
+
+  transform: skew(-8deg);
+
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+.logo-m {
+  color: #ffffff;
+}
+
+.logo-i {
+  color: #38bdf8;
+}
+
+.logo-q {
+  color: #86efac;
+}
+
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: skew(-8deg) translateY(0);
+  }
+
+  50% {
+    transform: skew(-8deg) translateY(-6px);
+  }
+}
+
+
+/* =========================================
+   SMALL TITLE
+========================================= */
+
+.welcome-small-title {
+  margin: 0 0 18px;
+
+  color: #7dd3fc;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 4px;
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.welcome-content h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(50px, 8vw, 92px);
+
+  line-height: 0.95;
+
+  font-weight: 900;
+
+  letter-spacing: -5px;
+}
+
+.welcome-content h1 span {
+  color: #38bdf8;
+
+  text-shadow:
+    0 0 30px rgba(56, 189, 248, 0.2);
+}
+
+
+/* =========================================
+   LINE
+========================================= */
+
+.welcome-line {
+  width: 90px;
+  height: 3px;
+
+  margin: 28px auto;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #86efac
+  );
+
+  box-shadow:
+    0 0 18px rgba(56, 189, 248, 0.35);
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.welcome-content h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(24px, 4vw, 38px);
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -1px;
+}
+
+.welcome-content h2 span {
+  color: #86efac;
+
+  text-shadow:
+    0 0 20px rgba(134, 239, 172, 0.15);
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.welcome-description {
+  max-width: 600px;
+
+  margin: 22px auto 35px;
+
+  color: #cbd5e1;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   ENTER BUTTON
+========================================= */
+
+.enter-miq-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  min-width: 195px;
+
+  padding: 17px 28px;
+
+  border: 1px solid rgba(125, 211, 252, 0.45);
+
+  border-radius: 14px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(56, 189, 248, 0.95),
+      rgba(37, 99, 235, 0.95)
+    );
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 12px 40px rgba(56, 189, 248, 0.2);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.enter-miq-button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+.enter-miq-button:hover::before {
+  left: 140%;
+}
+
+.enter-miq-button:hover {
+  transform: translateY(-5px) scale(1.03);
+
+  box-shadow:
+    0 18px 50px rgba(56, 189, 248, 0.3),
+    0 0 35px rgba(134, 239, 172, 0.1);
+}
+
+.enter-miq-button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.button-arrow {
+  font-size: 22px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.enter-miq-button:hover .button-arrow {
+  transform: translateX(6px);
+}
+
+
+/* =========================================
+   FOOTER TEXT
+========================================= */
+
+.welcome-footer {
+  margin-top: 30px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   CORNER DESIGN
+========================================= */
+
+.welcome-corner {
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-color: rgba(125, 211, 252, 0.3);
+
+  z-index: 2;
+}
+
+.top-left {
+  top: 30px;
+  left: 30px;
+
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.bottom-right {
+  right: 30px;
+  bottom: 30px;
+
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .welcome-content {
+    padding: 30px 15px;
+  }
+
+  .welcome-logo {
+    font-size: 42px;
+  }
+
+  .welcome-small-title {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .welcome-content h1 {
+    letter-spacing: -3px;
+  }
+
+  .welcome-description {
+    font-size: 14px;
+  }
+
+  .enter-miq-button {
+    width: 190px;
+  }
+
+  .welcome-corner {
+    width: 60px;
+    height: 60px;
+  }
+
+  .top-left {
+    top: 15px;
+    left: 15px;
+  }
+
+  .bottom-right {
+    right: 15px;
+    bottom: 15px;
+  }
+}
